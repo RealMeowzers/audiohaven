@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Play MP3 File</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      label {
+        font-size: 20px;
+      }
+      input[type="text"], select {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+      audio {
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Play MP3 File</h1>
+    <div style="max-width: 400px; margin: 0 auto;">
+      <label for="lst">Select a song:</label>
+      <input id="lst" list="songs" type="text">
+      <datalist id="songs">
+        <option value="Hey Ya" label="3:59">
+        <option value="Waiting For Love" label="3:51">
+        <option value="Build A Bitch" label="2:02">
+      </datalist>
+      <br>
+      <audio id="audio-player" controls>
+        <source id="src" src="" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <script>
+      var audioPlayer = document.getElementById("audio-player");
+      var source = document.getElementById("src");
+
+      // Listen for changes in the selection of the list
+      document.getElementById('lst').onchange = function(){
+        var selectedSong = this.value;
+        
+        // Set the source of the audio player based on the selected song
+        if (selectedSong === "Hey Ya") {
+          source.src = "hey_ya.mp3";
+        } else if (selectedSong === "Waiting For Love") {
+          source.src = "waiting_for_love.mp3";
+        } else if (selectedSong === "Build A Bitch") {
+          source.src = "build_a_bitch.mp3";
+        }
+        
+        // Load and play the new audio file
+        audioPlayer.load();
+        audioPlayer.play();
+      };
+    </script>
+  </body>
+</html>
