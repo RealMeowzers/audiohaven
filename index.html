@@ -147,6 +147,7 @@ audio {
         var selectedSong = this.value;
         var label = this.label;
         // Set the source of the audio player based on the selected song
+        document.title = selectedSong + " - Audio Haven";
         if (selectedSong === "Hey Ya") {
           source.src = "hey_ya.mp3";
         } else if (selectedSong === "Waiting For Love") {
