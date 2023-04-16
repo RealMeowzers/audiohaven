@@ -28,24 +28,32 @@
         margin: 0 auto;
         margin-top: 30px;
       }
+      #player {
+        positon: absolute;
+        width:100%;
+        background-color:grey;
+        bottom:0px;
+        left:0px;
+      }
     </style>
   </head>
   <body>
     <h1>Audio Haven</h1>
     <div style="max-width: 400px; margin: 0 auto;">
       <label for="lst">Select a song:</label>
-      <input id="lst" list="songs" type="text">
-      <datalist id="songs">
-        <option value="Hey Ya" label="3:59">
-        <option value="Waiting For Love" label="3:51">
-        <option value="Build A Bitch" label="2:02">
-      </datalist>
       <br>
       <audio id="audio-player" controls>
         <source id="src" src="" type="audio/mpeg">
       </audio>
     </div>
-    <div>
+    <div id="player">
+    <input id="lst" list="songs" type="text">
+      <datalist id="songs">
+        <option value="Hey Ya" label="3:59">
+        <option value="Waiting For Love" label="3:51">
+        <option value="Build A Bitch" label="2:02">
+      </datalist>
+    </div>
     <br>
       <p>New Songs are being added, don't worry</p>
     <script>
@@ -69,6 +77,7 @@
         audioPlayer.load();
         audioPlayer.play();
       };
+      setInterval("document.getElementById('player').style.bottom = window.innerHeight;", 10)
     </script>
   </body>
 </html>
