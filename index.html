@@ -30,9 +30,9 @@ input[type="text"],
 select {
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 800px;
   background-color: #282828;
   color: #fff;
 }
@@ -143,7 +143,7 @@ audio {
       // Listen for changes in the selection of the list
       document.getElementById('lst').onchange = function(){
         var selectedSong = this.value;
-        
+        var label = this.label;
         // Set the source of the audio player based on the selected song
         if (selectedSong === "Hey Ya") {
           source.src = "hey_ya.mp3";
